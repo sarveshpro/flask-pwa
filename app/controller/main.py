@@ -9,7 +9,7 @@ bp = Blueprint('main', __name__)
 @bp.route('/')
 def index():
     return render_template('index.html',
-                           title='UV Disinfectant Bot')
+                           title='Smart WiFi Bot')
 
 
 direction = 'stop'
