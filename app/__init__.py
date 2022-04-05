@@ -1,6 +1,8 @@
 from distutils.debug import DEBUG
 import os
 from flask import Flask
+import RPi.GPIO as GPIO
+import time
 
 
 def create_app():
@@ -30,6 +32,20 @@ def create_app():
     # from app.model import db, migrate
     # db.init_app(app)
     # migrate.init_app(app, db)
+
+    # left - 7, 8, 11
+    # right - 10, 12, 13
+
+    GPIO.setwarnings(False)
+    GPIO.setmode(GPIO.BOARD)
+    GPIO.setup(7, GPIO.OUT)
+    GPIO.setup(8, GPIO.OUT)
+    GPIO.setup(11, GPIO.OUT)
+    GPIO.setup(10, GPIO.OUT)
+    GPIO.setup(12, GPIO.OUT)
+    GPIO.setup(13, GPIO.OUT)
+    GPIO.output(11, 100)
+    GPIO.output(13, 100)
 
     from app.controller import (
         main, pwa
